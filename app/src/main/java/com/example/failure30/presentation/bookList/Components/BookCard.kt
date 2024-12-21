@@ -1,4 +1,4 @@
-package com.example.failure30.presentation
+package com.example.failure30.presentation.bookList.Components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

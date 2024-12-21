@@ -1,4 +1,4 @@
-package com.example.failure30.presentation
+package com.example.failure30.presentation.bookList.Components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

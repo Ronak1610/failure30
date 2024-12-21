@@ -1,7 +1,13 @@
 package com.example.failure30.navigation.route
 
 import com.example.failure30.domain.model.BOOK
+import kotlinx.serialization.Serializable
 
+@Serializable
+object BookListScreen
+
+
+@Serializable
 data class BookDetails(
     val id : Int,
     val tittle : String,

@@ -1,4 +1,4 @@
-package com.example.failure30.presentation
+package com.example.failure30.presentation.bookList.Components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,7 +30,9 @@ fun BookListContent(innerPadding : PaddingValues,
 {
 
     var bookId by remember { mutableStateOf(NON_EXISTENT_BOOK_ID) }
-    LazyColumn (modifier = Modifier.fillMaxSize().padding(innerPadding))
+    LazyColumn (modifier = Modifier.fillMaxSize()
+        .padding(innerPadding)
+    )
     {
         items(
             items = books,
@@ -79,7 +81,7 @@ fun BookListContent(innerPadding : PaddingValues,
                                 else{
                                     onNoUpdate()
                                 }
-                                bookId=NON_EXISTENT_BOOK_ID
+                                bookId= NON_EXISTENT_BOOK_ID
                             }
                         }
                     },
