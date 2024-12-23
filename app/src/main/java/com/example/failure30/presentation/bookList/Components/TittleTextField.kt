@@ -1,7 +1,7 @@
 package com.example.failure30.presentation.bookList.Components
 
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -14,7 +14,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
+
 import com.example.failure30.R
 
 @Composable
@@ -45,10 +45,4 @@ fun TittleTestField(tittle : String,
         })
 
 
-}
-@Preview(showBackground = true)
-@Composable
-fun TittleTestFieldPreview()
-{
-    TittleTestField(tittle = stringResource(R.string.book_title), onUpdate = {})
 }

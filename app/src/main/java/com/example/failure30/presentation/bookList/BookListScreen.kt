@@ -1,8 +1,12 @@
 package com.example.failure30.presentation.bookList
 
 import android.annotation.SuppressLint
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
+
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -10,7 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.failure30.R
@@ -26,17 +30,19 @@ import com.example.failure30.presentation.bookList.Components.InsertActionFloati
 import com.example.failure30.presentation.bookList.Components.InsertAlertDialog
 
 @SuppressLint("SuspiciousIndentation")
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ListScreen(modifier: Modifier,viewModel: BookViewModel= hiltViewModel(),
-               navigateToBookDetailsScreen: (BOOK) -> Unit
+fun ListScreen(viewModel: BookViewModel= hiltViewModel(),
+               navigateToBookDetailsScreen: (BOOK) -> Unit,modifier: Modifier = Modifier
                ) {
+
 val context = LocalContext.current
     val bookListResponse by viewModel.bookListResponseFlow.collectAsStateWithLifecycle(Response.Loading)
     var insertingBook by remember { (mutableStateOf(false)) }
     var updatingBook by remember { (mutableStateOf(false)) }
     var deletingBook by remember { (mutableStateOf(false)) }
     var insertDialogState by remember { (mutableStateOf(false)) }
+
     Scaffold (
         topBar = {
             BookTopBar()
@@ -48,7 +54,8 @@ val context = LocalContext.current
 
             }
             )
-        }
+        },
+        modifier = Modifier.windowInsetsPadding(WindowInsets.systemBars)
     ){ innerpadding ->
         when(val bookListResponse = bookListResponse)
         {
@@ -128,10 +135,4 @@ val context = LocalContext.current
             is Response.Failure -> printError(bookResponse.e)
         }
     }
-}
-@Preview
-@Composable
-fun ListScreenPreview()
-{
-
 }

@@ -9,12 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.Card
+
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+
 import androidx.compose.ui.unit.dp
 import com.example.failure30.R
 import com.example.failure30.components.ActionIcon
@@ -34,7 +34,7 @@ fun BookCard(book: BOOK,
         bottom = 4.dp
     ).clickable { onBookClick() },
         shape = MaterialTheme.shapes.small,
-        elevation = CardDefaults.cardElevation(3.dp)
+        elevation = 4.dp
     ) {
         Row(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
             Column ()
@@ -55,10 +55,4 @@ fun BookCard(book: BOOK,
                 contentDescriptionResID = R.string.delete_icon)
         }
     }
-}
-@Preview(showBackground = true)
-@Composable
-fun BookCardPreview()
-{
-    BookCard(book = BOOK(1,"The Great Gatsby","F. Scott Fitzgerald"), onBookClick = {}, onDeleteClick = {}, onEditClick = {})
 }

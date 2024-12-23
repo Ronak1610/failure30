@@ -11,7 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+
 import androidx.compose.ui.unit.dp
 import com.example.failure30.domain.model.BOOK
 
@@ -94,20 +94,4 @@ fun BookListContent(innerPadding : PaddingValues,
         }
     }
 }
-@Preview(showBackground = true)
-@Composable
-fun showontent()
-{
-    BookListContent(
-        innerPadding = PaddingValues(8.dp),
-        books = listOf(BOOK(1,"The Great Gatsby", "F. Scott Fitzgerald")
-        ),
-       onBookClick = {},
-        onDeletUpdate = {},
-        onUpdateClick = {},
-        onEmptyTittleUpdate = {},
-        OnEmptyAuthorUpdate = {},
-        onNoUpdate = {}
 
-    )
-}

@@ -5,8 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.failure30.domain.Repository.Bookrespository
+
 import com.example.failure30.core.launchCatching
+import com.example.failure30.domain.Repository.BookRepository
 import com.example.failure30.domain.model.BOOK
 import com.example.failure30.domain.model.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +20,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class BookViewModel @Inject constructor(private val repo: Bookrespository) : ViewModel() {
+class BookViewModel @Inject constructor(private val repo: BookRepository) : ViewModel() {
     var insertbook by mutableStateOf<Response<Unit>>(Response.Loading)
         private set
     var updateBookResponse by mutableStateOf<Response<Unit>>(Response.Loading)
@@ -42,7 +43,7 @@ class BookViewModel @Inject constructor(private val repo: Bookrespository) : Vie
 
     fun updateBook(book: BOOK) = viewModelScope.launch {
         updateBookResponse = launchCatching {
-            repo.updatebook(book)
+            repo.updateBook(book)
         }
     }
         fun deleteBook(book: BOOK) = viewModelScope.launch {
